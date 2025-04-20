@@ -1,0 +1,56 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 5rem; /* Space for fixed navbar */
+}
+
+/* Animation for page transitions */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.main-content > * {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.wallet-warning {
+  background-color: rgba(255, 173, 51, 0.1);
+  border: 1px solid rgba(255, 173, 51, 0.3);
+  color: #ffad33;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wallet-warning p {
+  margin-bottom: 0.5rem;
+}
+
+.install-wallet-link {
+  display: inline-block;
+  background-color: #ffad33;
+  color: #0a0e17;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.install-wallet-link:hover {
+  background-color: #ffc266;
+  transform: translateY(-2px);
+} 

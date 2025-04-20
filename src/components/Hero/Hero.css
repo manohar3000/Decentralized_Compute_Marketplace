@@ -1,0 +1,176 @@
+.hero {
+  position: relative;
+  height: 85vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 238, 255, 0.1) 0%, rgba(10, 14, 23, 0) 70%);
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 0 1.5rem;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #00eeff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.hero-btn {
+  min-width: 150px;
+  font-size: 1.125rem;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Meteor animation in background */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(0, 238, 255, 0) 0%, rgba(0, 238, 255, 0.8) 50%, rgba(0, 238, 255, 0) 100%);
+  animation-duration: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: -1;
+}
+
+.hero::before {
+  top: 30%;
+  left: -10%;
+  transform: rotate(35deg);
+  animation-name: meteor1;
+  animation-delay: 0s;
+}
+
+.hero::after {
+  bottom: 20%;
+  right: -10%;
+  transform: rotate(-15deg);
+  animation-name: meteor2;
+  animation-delay: 3s;
+}
+
+@keyframes meteor1 {
+  0% {
+    transform: translateX(-200px) translateY(-100px) rotate(35deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px)) translateY(calc(100vh + 100px)) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+@keyframes meteor2 {
+  0% {
+    transform: translateX(calc(100vw + 200px)) translateY(-100px) rotate(-15deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-200px) translateY(calc(50vh + 100px)) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 75vh;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+} 
